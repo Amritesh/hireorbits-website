@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import CTA from '../components/CTA.astro';
+import Icon from '../components/Icon.astro';
+import { services, models } from '../data/company';
+import { url } from '../lib/url';
+---
+
+<Layout
+  title="Resources"
+  description="A quick guide to Hireorbits' capabilities, engagement models, and technology and talent services."
+>
+  <PageHeading
+    eyebrow="RESOURCES"
+    title="Get to know your next partner."
+    description="A concise guide to our capabilities and the ways we can support your organization."
+  />
+  <section class="section">
+    <div class="container">
+      <div class="section-top">
+        <h2>Hireorbits at a glance.</h2>
+        <p>
+          A technology and talent solutions company, founded in 2026 and headquartered in Patna,
+          Bihar, India.
+        </p>
+      </div>
+      <div class="two-grid">
+        {['technology', 'staffing'].map((group) => (
+          <article class="content-card">
+            <p class="eyebrow">
+              {group === 'technology' ? 'BUILD YOUR CAPABILITIES' : 'BUILD YOUR TEAM'}
+            </p>
+            <h2>{group === 'technology' ? 'Technology solutions' : 'Talent solutions'}</h2>
+            <ul class="simple-list">
+              {services
+                .filter((service) => service.group === group)
+                .map((service) => (
+                  <li>{service.title}</li>
+                ))}
+            </ul>
+            <a class="text-link" href={url(`${group}/`)}>
+              Explore capabilities <Icon size={18} />
+            </a>
+          </article>
+        ))}
+      </div>
+      <div class="model-grid">
+        {models.map((model, index) => (
+          <div>
+            <span class="model-number">0{index + 1}</span>
+            <h3>{model.title}</h3>
+            <p>{model.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CTA />
+</Layout>

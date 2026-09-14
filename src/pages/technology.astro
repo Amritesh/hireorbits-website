@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import ServiceList from '../components/ServiceList.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout
+  title="Technology solutions"
+  description="Software engineering, AI and data, cloud, DevOps, enterprise consulting, and managed technology services from Hireorbits."
+>
+  <PageHeading
+    eyebrow="TECHNOLOGY SOLUTIONS"
+    title="Build better. Think bigger. Go further."
+    description="From your first product to your next enterprise transformation, connect strategy with the engineering expertise to make it happen."
+  />
+  <section class="section">
+    <div class="container">
+      <ServiceList group="technology" />
+    </div>
+  </section>
+  <CTA />
+</Layout>

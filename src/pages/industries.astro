@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import CTA from '../components/CTA.astro';
+import Icon from '../components/Icon.astro';
+import { industries } from '../data/company';
+import { url } from '../lib/url';
+---
+
+<Layout
+  title="Industries"
+  description="Technology and talent solutions for manufacturing, healthcare, financial services, semiconductors, retail, and more."
+>
+  <PageHeading
+    eyebrow="INDUSTRIES WE SERVE"
+    title="Your industry. Our shared focus."
+    description="Every industry has its own challenges. We combine domain understanding with technology and talent expertise to help you address yours."
+  />
+  <section class="section">
+    <div class="container">
+      <div class="industry-grid full-industry-grid">
+        {industries.map((industry, index) => (
+          <a href={url('contact/')}>
+            <span class="industry-number">{String(index + 1).padStart(2, '0')}</span>
+            <h2>{industry}</h2>
+            <Icon size={18} />
+          </a>
+        ))}
+      </div>
+      <p class="muted-note">
+        Looking ahead: government and public sector services are part of our future expansion plans.
+      </p>
+    </div>
+  </section>
+  <CTA />
+</Layout>

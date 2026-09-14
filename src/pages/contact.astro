@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import Icon from '../components/Icon.astro';
+import { company } from '../data/company';
+const contacts = [
+  [
+    'sales',
+    'Let’s talk business',
+    'Discuss a project, request talent, or arrange a free consultation.',
+  ],
+  ['info', 'General enquiries', 'Learn more about Hireorbits and how we can work together.'],
+  [
+    'careers',
+    'Find your next opportunity',
+    'Share your CV and tell us where you’d like to go next.',
+  ],
+  ['support', 'Ongoing support', 'Get in touch about your existing engagement.'],
+];
+---
+
+<Layout
+  title="Contact us"
+  description="Contact Hireorbits Solution in Patna, India to discuss technology projects, talent requirements, careers, and partnerships."
+>
+  <PageHeading
+    eyebrow="LET’S START A CONVERSATION"
+    title="What could we build together?"
+    description="Tell us what you’re working toward. We’ll connect you with the right team to explore your technology and talent needs."
+  />
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-cards">
+        {contacts.map(([inbox, title, description]) => (
+          <article class="contact-card">
+            <Icon name="mail" />
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <a class="text-link" href={`mailto:${inbox}@hireorbits.com`}>
+              {inbox}@hireorbits.com <Icon size={16} />
+            </a>
+          </article>
+        ))}
+      </div>
+      <aside class="office-card">
+        <Icon name="pin" size={30} />
+        <p class="eyebrow">OUR CORPORATE OFFICE</p>
+        <h2>
+          Rooted in Patna.
+          <br />
+          Working globally.
+        </h2>
+        <address>
+          <strong>{company.name}</strong>
+          <br />
+          {company.address}
+        </address>
+        <hr />
+        <h3>Business hours</h3>
+        <p>{company.hours}</p>
+        <h3>Follow our journey</h3>
+        <a class="text-link" href={company.linkedin}>
+          Connect on LinkedIn <Icon size={16} />
+        </a>
+      </aside>
+    </div>
+    <div class="container">
+      <p class="muted-note">
+        Email links open your email app. For a consultation, include a short overview of your needs
+        and a few convenient meeting times.
+      </p>
+    </div>
+  </section>
+</Layout>

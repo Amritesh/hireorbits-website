@@ -1,0 +1,68 @@
+---
+import { company } from '../data/company';
+import { url } from '../lib/url';
+const groups = [
+  {
+    title: 'Company',
+    links: [
+      ['Home', ''],
+      ['About us', 'about/'],
+      ['Why Hireorbits', 'why-us/'],
+      ['Careers', 'careers/'],
+    ],
+  },
+  {
+    title: 'Our expertise',
+    links: [
+      ['All services', 'services/'],
+      ['Technology solutions', 'technology/'],
+      ['Staffing solutions', 'staffing/'],
+      ['Industries', 'industries/'],
+    ],
+  },
+  {
+    title: 'Stay connected',
+    links: [
+      ['Blog & insights', 'insights/'],
+      ['Case studies', 'case-studies/'],
+      ['Resources', 'resources/'],
+      ['Contact us', 'contact/'],
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand footer-brand" href={url()}>
+        hireorbits<span class="brand-dot">.</span>
+      </a>
+      <p>{company.tagline}</p>
+      <a class="footer-email" href="mailto:info@hireorbits.com">
+        info@hireorbits.com
+      </a>
+      <a class="social-link" href={company.linkedin} aria-label="Hireorbits on LinkedIn">
+        in <span>Connect on LinkedIn ↗</span>
+      </a>
+    </div>
+    {groups.map((group) => (
+      <div>
+        <h2>{group.title}</h2>
+        {group.links.map(([label, path]) => (
+          <a href={url(path)}>{label}</a>
+        ))}
+      </div>
+    ))}
+  </div>
+  <div class="container footer-bottom">
+    <span>
+      © {new Date().getFullYear()} {company.name}
+    </span>
+    <div>
+      <a href={url('privacy/')}>Privacy policy</a>
+      <a href={url('terms/')}>Terms & conditions</a>
+    </div>
+    <span>Built around people. Driven by possibility.</span>
+  </div>
+</footer>

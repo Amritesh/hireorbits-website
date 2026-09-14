@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import CTA from '../components/CTA.astro';
+import { values } from '../data/company';
+---
+
+<Layout
+  title="About us"
+  description="Meet Hireorbits Solution, a technology, engineering, and talent partner founded in 2026 and headquartered in Patna, India."
+>
+  <PageHeading
+    eyebrow="THE PEOPLE BEHIND THE POSSIBILITIES"
+    title="A shared ambition. A world of opportunity."
+    description="We bring people, technology, and purpose together to help organizations move forward with confidence."
+  />
+  <section class="section">
+    <div class="container split-layout">
+      <h2>
+        Good partnerships
+        <br />
+        start with understanding.
+      </h2>
+      <div class="prose">
+        <p>
+          Hireorbits Solution Private Limited is a global technology, engineering, and talent
+          solutions company headquartered in Patna, Bihar. Founded in 2026, we partner with
+          startups, small and medium-sized businesses, and large enterprises.
+        </p>
+        <p>
+          Our consultants, engineers, and recruitment specialists work closely with clients to
+          understand their challenges and develop practical strategies. From building
+          high-performing teams to developing enterprise applications, modernizing infrastructure,
+          and implementing AI solutions, we support organizations throughout their technology and
+          workforce journey.
+        </p>
+        <p>
+          Our business presence spans India and North America, serving organizations in India, the
+          United States, Canada, and the United Arab Emirates through onsite, offshore, hybrid, and
+          remote delivery.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section tint-section">
+    <div class="container two-grid">
+      <article class="content-card">
+        <p class="eyebrow">OUR MISSION</p>
+        <h2>Empower progress.</h2>
+        <p>
+          To empower organizations worldwide by delivering innovative technology solutions and
+          connecting them with exceptional talent that drives business success.
+        </p>
+      </article>
+      <article class="content-card">
+        <p class="eyebrow">OUR VISION</p>
+        <h2>Earn lasting trust.</h2>
+        <p>
+          To become a globally trusted technology and talent solutions partner, recognized for
+          innovation, excellence, integrity, and customer-centric delivery.
+        </p>
+      </article>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">WHAT GUIDES US</p>
+      <h2>Our values, in every partnership.</h2>
+      <div class="value-list">
+        {values.map((value, index) => (
+          <div>
+            <span>0{index + 1}</span>
+            <h3>{value}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CTA />
+</Layout>

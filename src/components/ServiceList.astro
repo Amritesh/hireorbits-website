@@ -1,0 +1,37 @@
+---
+import { services } from '../data/company';
+import Icon from './Icon.astro';
+interface Props {
+  group?: string;
+}
+const selected = Astro.props.group
+  ? services.filter((service) => service.group === Astro.props.group)
+  : services;
+---
+
+<div class="service-list">
+  {selected.map((service) => (
+    <details class="service-detail" id={service.id} open>
+      <summary>
+        <span class="icon-box">
+          <Icon name={service.icon} />
+        </span>
+        <span>
+          <span class="card-category">
+            {service.group === 'technology' ? 'TECHNOLOGY' : 'TALENT'}
+          </span>
+          <h2>{service.title}</h2>
+        </span>
+        <Icon name="chevron" size={20} />
+      </summary>
+      <div class="service-detail-body">
+        <p>{service.description}</p>
+        <ul class="capability-list">
+          {service.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </details>
+  ))}
+</div>

@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import ServiceList from '../components/ServiceList.astro';
+import CTA from '../components/CTA.astro';
+import { models } from '../data/company';
+---
+
+<Layout
+  title="Staffing solutions"
+  description="Find specialist talent in IT, engineering, manufacturing, semiconductors, healthcare, and professional business functions."
+>
+  <PageHeading
+    eyebrow="STAFFING SOLUTIONS"
+    title="Great things start with the right people."
+    description="Build the team your ambitions deserve. Connect with specialist talent and flexible workforce support across technology and industry."
+  />
+  <section class="section">
+    <div class="container">
+      <ServiceList group="staffing" />
+    </div>
+  </section>
+  <section class="section tint-section">
+    <div class="container">
+      <p class="eyebrow">FLEXIBLE ENGAGEMENT</p>
+      <h2>Your team, on your terms.</h2>
+      <div class="model-grid">
+        {models.map((model, index) => (
+          <div>
+            <span class="model-number">0{index + 1}</span>
+            <h3>{model.title}</h3>
+            <p>{model.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CTA />
+</Layout>

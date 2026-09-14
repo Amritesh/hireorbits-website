@@ -1,0 +1,19 @@
+---
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+---
+
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div>
+      <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+      <h2>
+        Let’s build what’s next.<span>Together.</span>
+      </h2>
+      <p>The right technology. The right people. A partner invested in your growth.</p>
+    </div>
+    <a class="button button-white" href={url('contact/')}>
+      Schedule a free consultation <Icon size={18} />
+    </a>
+  </div>
+</section>

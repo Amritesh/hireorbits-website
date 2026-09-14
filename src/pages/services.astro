@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import ServiceList from '../components/ServiceList.astro';
+import CTA from '../components/CTA.astro';
+import { services } from '../data/company';
+---
+
+<Layout
+  title="Our services"
+  description="Explore Hireorbits technology consulting, software engineering, cloud, AI, and specialist staffing services."
+>
+  <PageHeading
+    eyebrow="OUR EXPERTISE"
+    title="The capabilities to take you further."
+    description="Bring your technology and workforce ambitions together with one partner, across ten complementary service areas."
+  />
+  <section class="section">
+    <div class="container">
+      <nav class="jump-links" aria-label="Jump to a service">
+        {services.map((service) => (
+          <a href={`#${service.id}`}>{service.title}</a>
+        ))}
+      </nav>
+      <ServiceList />
+    </div>
+  </section>
+  <CTA />
+</Layout>

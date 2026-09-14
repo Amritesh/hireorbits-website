@@ -1,0 +1,94 @@
+---
+import { navigation } from '../data/company';
+import { url } from '../lib/url';
+import Icon from './Icon.astro';
+const active = (path: string) => (Astro.url.pathname === url(path) ? 'page' : undefined);
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={url()} aria-label="Hireorbits home">
+      <span class="brand-symbol" aria-hidden="true">
+        h<span></span>
+      </span>
+      <span>
+        hireorbits<span class="brand-caption">PEOPLE. TECHNOLOGY. POSSIBILITIES.</span>
+      </span>
+    </a>
+    <button
+      class="menu-toggle"
+      aria-label="Open navigation"
+      aria-controls="main-nav"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+      {navigation.map((item) =>
+        item.links ? (
+          <details class="nav-group">
+            <summary>
+              {item.label}
+              <Icon name="chevron" size={14} />
+            </summary>
+            <div class="nav-dropdown">
+              {item.links.map(([label, path]) => (
+                <a href={url(path)} aria-current={active(path)}>
+                  {label}
+                </a>
+              ))}
+            </div>
+          </details>
+        ) : (
+          <a href={url(item.href)} aria-current={active(item.href!)}>
+            {item.label}
+          </a>
+        ),
+      )}
+      <a class="button button-small" href={url('contact/')}>
+        Let’s talk <Icon size={16} />
+      </a>
+    </nav>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle')!;
+  const nav = document.querySelector<HTMLElement>('#main-nav')!;
+  const groups = [...nav.querySelectorAll('details')];
+  function closeMenu() {
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation');
+    nav.classList.remove('is-open');
+    groups.forEach((group) => (group.open = false));
+  }
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    nav.classList.toggle('is-open', open);
+  });
+  groups.forEach((group) =>
+    group.addEventListener('toggle', () => {
+      if (group.open)
+        groups.filter((other) => other !== group).forEach((other) => (other.open = false));
+    }),
+  );
+  document.addEventListener('click', (event) => {
+    if (
+      !(event.target instanceof Node) ||
+      nav.contains(event.target) ||
+      toggle.contains(event.target)
+    )
+      return;
+    closeMenu();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const focused = groups.find((group) => group.open && group.contains(document.activeElement));
+    const mobileOpen = toggle.getAttribute('aria-expanded') === 'true';
+    closeMenu();
+    if (mobileOpen) toggle.focus();
+    else focused?.querySelector('summary')?.focus();
+  });
+</script>

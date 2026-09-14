@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import CTA from '../components/CTA.astro';
+import Icon from '../components/Icon.astro';
+import { url } from '../lib/url';
+---
+
+<Layout
+  title="Case studies"
+  description="Explore Hireorbits' approach to technology and talent delivery. Client case studies will be shared here as they become available."
+>
+  <PageHeading
+    eyebrow="OUR WORK"
+    title="Every partnership has a story."
+    description="A place for the challenges, collaboration, and outcomes behind our technology and talent engagements."
+  />
+  <section class="section">
+    <div class="container empty-state">
+      <span class="icon-box">
+        <Icon name="briefcase" size={28} />
+      </span>
+      <h2>Our stories are taking shape.</h2>
+      <p>
+        We haven’t published client case studies yet. In the meantime, talk with our team about your
+        challenge and how we would approach it.
+      </p>
+      <a class="button button-outline" href={url('contact/')}>
+        Discuss your project <Icon size={18} />
+      </a>
+    </div>
+  </section>
+  <CTA />
+</Layout>

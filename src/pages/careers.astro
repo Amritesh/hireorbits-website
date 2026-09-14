@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import Icon from '../components/Icon.astro';
+import { services, values } from '../data/company';
+---
+
+<Layout
+  title="Career opportunities"
+  description="Connect with Hireorbits about opportunities in technology, engineering, healthcare, and professional services."
+>
+  <PageHeading
+    eyebrow="GROW WITH HIREORBITS"
+    title="Your next chapter could start here."
+    description="Bring your skills, curiosity, and ambition. Connect with our team to explore how your experience could fit future opportunities."
+  />
+  <section class="section">
+    <div class="container split-layout">
+      <div>
+        <p class="eyebrow">LET’S GET TO KNOW YOU</p>
+        <h2>
+          People make
+          <br />
+          the difference.
+        </h2>
+        <p>
+          We value collaboration, continuous learning, and accountability. Whether you’re a
+          technology specialist or an experienced industry professional, we’d like to hear about
+          your strengths.
+        </p>
+        <a class="button" href="mailto:careers@hireorbits.com?subject=Career%20enquiry">
+          Email your CV <Icon size={18} />
+        </a>
+        <p class="muted-note">
+          Opens your email app. Include your CV, area of expertise, preferred location, and
+          availability.
+        </p>
+      </div>
+      <div class="content-card">
+        <p class="eyebrow">TALENT AREAS</p>
+        <ul class="simple-list">
+          {services
+            .filter((service) => service.group === 'staffing')
+            .map((service) => (
+              <li>{service.title}</li>
+            ))}
+        </ul>
+        <p class="muted-note">
+          No specific vacancies are published at the moment. You’re welcome to send a general
+          expression of interest.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section tint-section">
+    <div class="container">
+      <p class="eyebrow">WHAT WE VALUE</p>
+      <h2>Bring your best. Keep growing.</h2>
+      <div class="chips">
+        {values.map((value) => (
+          <span>{value}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

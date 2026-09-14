@@ -1,0 +1,24 @@
+{
+  "name": "hireorbits-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test tests/site.test.mjs",
+    "format": "prettier --write \"src/**/*.{astro,ts}\" \"tests/**/*.mjs\" \"*.{json,mjs}\""
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "^5.3.0",
+    "astro": "^7.3.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^1.0.0"
+  }
+}

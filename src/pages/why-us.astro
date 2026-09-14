@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import CTA from '../components/CTA.astro';
+import { strengths } from '../data/company';
+---
+
+<Layout
+  title="Why Hireorbits"
+  description="A collaborative technology and talent partner focused on technical expertise, flexible delivery, and transparent communication."
+>
+  <PageHeading
+    eyebrow="WHY HIREORBITS"
+    title="Your progress is our purpose."
+    description="We want to be the partner you can build with: technically capable, easy to work with, and committed to your long-term success."
+  />
+  <section class="section">
+    <div class="container two-grid">
+      {strengths.map(([title, description], index) => (
+        <article class="content-card">
+          <span class="model-number">0{index + 1}</span>
+          <h2>{title}</h2>
+          <p>{description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section tint-section">
+    <div class="container split-layout">
+      <div>
+        <p class="eyebrow">OUR BRAND PROMISE</p>
+        <h2>
+          A lasting partnership.
+          <br />A shared direction.
+        </h2>
+      </div>
+      <div class="prose">
+        <p>
+          We build long-term partnerships that empower businesses to innovate, scale, and succeed.
+          Quality, transparency, and customer success guide how we work.
+        </p>
+        <p>
+          Our focus is practical: understand your needs, bring the right expertise, communicate
+          clearly, and stay aligned with the outcomes that matter to your organization.
+        </p>
+      </div>
+    </div>
+  </section>
+  <CTA />
+</Layout>

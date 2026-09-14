@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+*.pages
+docs/source-content.txt
+.env*
+!.env.example
+.worktrees/
+artifacts/

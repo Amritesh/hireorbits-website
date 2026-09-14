@@ -1,0 +1,241 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CTA from '../components/CTA.astro';
+import { services, industries, models } from '../data/company';
+import { url } from '../lib/url';
+---
+
+<Layout
+  title="Technology & talent. Moving you forward."
+  description="Hireorbits connects technology, engineering, and exceptional talent to help businesses innovate, transform, and grow."
+>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="eyebrow-line"></span>GLOBAL TECHNOLOGY & TALENT PARTNER
+        </p>
+        <h1>
+          Great people.
+          <br />
+          Smart technology.
+          <br />
+          <span>
+            Extraordinary
+            <br class="desktop-break" /> possibilities.
+          </span>
+        </h1>
+        <p class="hero-description">
+          We bring technology and talent together to help your business build better, move faster,
+          and grow further.
+        </p>
+        <div class="button-row">
+          <a class="button" href={url('contact/')}>
+            Let’s build what’s next <Icon size={18} />
+          </a>
+          <a class="button button-outline" href={url('services/')}>
+            Explore our solutions
+          </a>
+        </div>
+        <div class="hero-note">
+          <span class="mini-globe">
+            <Icon name="globe" size={18} />
+          </span>
+          Rooted in India. Connected to the world.
+        </div>
+      </div>
+      <div class="orbit-scene" aria-hidden="true">
+        <div class="orbit-grid"></div>
+        <div class="orbit-glow"></div>
+        <div class="orbit-ring ring-one"></div>
+        <div class="orbit-ring ring-two"></div>
+        <div class="orbit-ring ring-three"></div>
+        <div class="orbit-core">
+          <span class="core-mark">
+            h<span></span>
+          </span>
+          <span class="core-label">POSSIBILITY, CONNECTED.</span>
+        </div>
+        <span class="orbit-node node-one"></span>
+        <span class="orbit-node node-two"></span>
+        <span class="orbit-node node-three"></span>
+        <div class="orbit-tag tag-tech">
+          <span class="tag-icon">
+            <Icon name="code" size={20} />
+          </span>
+          <span>
+            Technology<span>Built for what’s next</span>
+          </span>
+        </div>
+        <div class="orbit-tag tag-talent">
+          <span class="tag-icon">
+            <Icon name="people" size={20} />
+          </span>
+          <span>
+            Talent<span>People who make it happen</span>
+          </span>
+        </div>
+        <div class="orbit-caption">
+          <span>ONE PARTNER.</span> ENDLESS POSSIBILITIES.
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="reach-strip" aria-label="Our reach">
+    <div class="container">
+      <span>
+        LOCAL UNDERSTANDING.
+        <br />
+        <strong>GLOBAL POSSIBILITIES.</strong>
+      </span>
+      <span>India</span>
+      <span>United States</span>
+      <span>Canada</span>
+      <span>United Arab Emirates</span>
+      <span class="reach-icon">
+        <Icon name="globe" size={28} />
+      </span>
+    </div>
+  </section>
+  <section class="section" id="solutions">
+    <div class="container">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">WHAT WE DO</p>
+          <h2>
+            Two strengths.
+            <br />
+            One powerful partnership.
+          </h2>
+        </div>
+        <p>
+          From building your next digital product to finding your next great hire, we bring the
+          expertise to move you forward.
+        </p>
+      </div>
+      <div class="service-grid">
+        {services.slice(0, 6).map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+      <div class="section-bottom">
+        <span>Your ambition deserves the right expertise.</span>
+        <a class="text-link" href={url('services/')}>
+          Discover all our services <Icon size={18} />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section about-section">
+    <div class="container about-grid">
+      <div class="about-art">
+        <p class="eyebrow">PEOPLE + TECHNOLOGY</p>
+        <h2>
+          Progress begins
+          <br />
+          with the right
+          <br />
+          <span>connection.</span>
+        </h2>
+        <div class="connection-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="about-art-foot">
+          <span>HIREORBITS SOLUTION</span>
+          <span>EST. 2026 ↗</span>
+        </div>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow">A PARTNER, NOT JUST A PROVIDER</p>
+        <h2>
+          Built around your business.
+          <br />
+          Invested in your future.
+        </h2>
+        <p>
+          At Hireorbits, we believe that people and technology are the driving forces behind every
+          successful organization.
+        </p>
+        <p>
+          We work alongside startups, growing businesses, and enterprises to solve technology and
+          workforce challenges—with thoughtful solutions, the right expertise, and a shared
+          commitment to progress.
+        </p>
+        <ul class="check-list">
+          <li>
+            <Icon name="check" size={18} />
+            Technology and talent under one roof
+          </li>
+          <li>
+            <Icon name="check" size={18} />
+            Flexible engagement, global delivery
+          </li>
+          <li>
+            <Icon name="check" size={18} />
+            Transparent, collaborative partnerships
+          </li>
+        </ul>
+        <a class="text-link" href={url('about/')}>
+          Get to know Hireorbits <Icon size={18} />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">INDUSTRIES WE SERVE</p>
+          <h2>
+            Different industries.
+            <br />
+            The same drive to do better.
+          </h2>
+        </div>
+        <a class="text-link" href={url('industries/')}>
+          Explore our industries <Icon size={18} />
+        </a>
+      </div>
+      <div class="industry-grid">
+        {industries.slice(0, 8).map((industry, index) => (
+          <a href={url('industries/')}>
+            <span class="industry-number">0{index + 1}</span>
+            <h3>{industry}</h3>
+            <Icon size={18} />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section delivery-section">
+    <div class="container">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">YOUR TEAM. YOUR WAY.</p>
+          <h2>
+            Global expertise.
+            <br />A model that fits you.
+          </h2>
+        </div>
+        <p>
+          Great partnerships aren’t one-size-fits-all. Work with us in the way that makes sense for
+          your people, priorities, and pace.
+        </p>
+      </div>
+      <div class="model-grid">
+        {models.map((model, index) => (
+          <div>
+            <span class="model-number">0{index + 1}</span>
+            <h3>{model.title}</h3>
+            <p>{model.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CTA />
+</Layout>

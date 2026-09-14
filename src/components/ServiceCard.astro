@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+import type { services } from '../data/company';
+interface Props {
+  service: (typeof services)[number];
+}
+const { service } = Astro.props;
+---
+
+<a class="service-card" href={url(`services/#${service.id}`)}>
+  <span class="icon-box">
+    <Icon name={service.icon} />
+  </span>
+  <span class="card-category">
+    {service.group === 'technology' ? 'TECHNOLOGY SOLUTIONS' : 'TALENT SOLUTIONS'}
+  </span>
+  <h3>{service.title}</h3>
+  <p>{service.description}</p>
+  <span class="card-link">
+    Explore service <Icon size={18} />
+  </span>
+</a>

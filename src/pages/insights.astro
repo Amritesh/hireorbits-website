@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import Icon from '../components/Icon.astro';
+import { company } from '../data/company';
+---
+
+<Layout
+  title="Blog & insights"
+  description="Perspectives on technology, talent, and business transformation from Hireorbits."
+>
+  <PageHeading
+    eyebrow="BLOG & INSIGHTS"
+    title="Ideas for a world moving forward."
+    description="Perspectives on the people, technologies, and changes shaping the way businesses work."
+  />
+  <section class="section">
+    <div class="container empty-state">
+      <span class="icon-box">
+        <Icon name="spark" size={28} />
+      </span>
+      <h2>Good conversations are just beginning.</h2>
+      <p>
+        Our first articles are on their way. Connect with Hireorbits on LinkedIn for company updates
+        and future insights.
+      </p>
+      <a class="button button-outline" href={company.linkedin}>
+        Follow on LinkedIn <Icon size={18} />
+      </a>
+    </div>
+  </section>
+</Layout>
