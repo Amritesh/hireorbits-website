@@ -12,6 +12,10 @@ concurrency:
   group: github-pages
   cancel-in-progress: false
 
+env:
+  SITE_URL: https://hireorbitssolution.com
+  BASE_PATH: /
+
 jobs:
   build:
     runs-on: ubuntu-latest

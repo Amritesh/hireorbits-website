@@ -20,6 +20,7 @@ export const navigation = [
       ['All services', 'services/'],
       ['Technology solutions', 'technology/'],
       ['Staffing solutions', 'staffing/'],
+      ['SAP solutions', 'sap/'],
     ],
   },
   { label: 'Industries', href: 'industries/' },
@@ -35,6 +36,22 @@ export const navigation = [
 ];
 
 export const services = [
+  {
+    id: 'sap',
+    group: 'technology',
+    icon: 'grid',
+    title: 'SAP consulting & enterprise solutions',
+    description:
+      'SAP consultants and specialist talent to implement, run, and modernize your SAP landscape.',
+    items: [
+      'SAP consulting and implementation support',
+      'SAP functional and technical talent',
+      'SAP S/4HANA and ERP solutions',
+      'SAP ABAP and application support',
+      'SAP FICO, MM, SD, PP, HCM, and other module-specific staffing, based on project requirements',
+      'SAP support, maintenance, and digital transformation',
+    ],
+  },
   {
     id: 'software',
     group: 'technology',
